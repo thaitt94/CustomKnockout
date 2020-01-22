@@ -1,0 +1,17 @@
+<div id="employee_knockout" data-bind="scope:'addemployee'">
+    <!-- ko template: getTemplate() --><!-- /ko -->
+</div>
+<script type="text/x-magento-init">
+    {
+        "#employee_knockout": {
+            "Magento_Ui/js/core/app": {
+            "components": {
+                    "addemployee": {
+                        "component": "Thai_Knockout1/js/list",
+                        "employees": <?php echo $block->getEmployeeJson(); ?> 
+                    }
+                }
+            }
+        }
+    }
+</script>
