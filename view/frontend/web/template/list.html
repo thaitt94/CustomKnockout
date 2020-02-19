@@ -1,5 +1,5 @@
 <!-- employee popup button -->
-<button type="button" data-bind="event: {click: addEmployeePopup}">
+<button type="button" data-bind="event: {click: createPopup}">
     <span data-bind="i18n: 'Add New Employee'"></span>
 </button>
 <!-- employee popup form -->
@@ -111,7 +111,7 @@
             <td>
                 <div class="actions-toolbar">
                     <div class="primary">
-                        <button type="button" class = "_edit" data-bind="click : $parent.editEmployee.bind($parent)"><span data-bind="i18n: 'Edit'"></span></button>
+                        <button type="button" class = "_edit" data-bind="click : $parent.createPopup.bind($parent)"><span data-bind="i18n: 'Edit'"></span></button>
                     </div>
                     <div class="secondary">
                         <button type="buttom" class = "_delete" data-bind="click : $parent.remove.bind($parent)"><span data-bind="i18n: 'Move'"></span></button>
