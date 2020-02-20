@@ -14,16 +14,18 @@ define([
             totalEmployee: ko.observableArray([]),
             initialize: function (config) {
                 this._super();
+                //đây là mình khởi tạo mảng data được tr ở file template phtml
                 if (config.employees.length > 0) {
                     this.totalEmployee(config.employees);
                     return this;
                 }
             },
-
+            //ở function này mình sẽ truyền data mà người dùng điền vào form popup ý truyền sang controller save để sử lí và trả lại data
             save: function (data)
             {
                 var employee = {},
                 self = this,
+                //dùng hàm bên dưới sẽ lấy đc tất cả data m
                 formDataArray = $(data).serializeArray();
                 //foreach saveData to {'key': 'value'}
                 formDataArray.forEach(function (entry) {
@@ -31,7 +33,7 @@ define([
                 });
                 if($(data).validation() && $(data).validation('isValid')) {
                     $.ajax({
-                        url: 'save',
+                        url: 'save',//đây là controler
                         data: JSON.stringify(employee),
                         type: "POST",
                         dataType: 'json',
@@ -54,7 +56,7 @@ define([
                     $('.action-close').click();
                 }
             },
-
+//đây là function check xem phần tử đó có tồn tại trong mảng không
             findIndex: function (arr,id) {
                 var ind = -1;
                 arr.forEach(function(item, index){
@@ -64,7 +66,7 @@ define([
                 });
                 return ind;
             },
-
+// 
             remove: function (item)
             {
                 var confirm_delete = confirm('Are you sure to delete ' + item.full_name + ' ?');
@@ -88,7 +90,7 @@ define([
                     )
                 }
             },
-
+//createPopup để tạo popup, nếu id != null thì tạo edit popup, ngược lại tạo add new popup
             createPopup: function(employee, event) {
                 var elmPopup = $("#employee-form-popup");
                 $( "#dob" ).datepicker();
