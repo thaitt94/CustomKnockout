@@ -25,7 +25,7 @@ define([
             {
                 var employee = {},
                 self = this,
-                //dùng hàm bên dưới sẽ lấy đc tất cả data m
+                //dùng hàm bên dưới sẽ lấy đc tất cả data 
                 formDataArray = $(data).serializeArray();
                 //foreach saveData to {'key': 'value'}
                 formDataArray.forEach(function (entry) {
@@ -39,6 +39,8 @@ define([
                         dataType: 'json',
                     })
                     .done(
+                        //đây là respone đc trả lại từ controller tớ dùng nó để cho vào mảng totalEmployee, sau đó 
+                        //dùng data-bind để đổ dữ liệu vào file html mà không cần load lại tr
                         function (response) {
                             if (response) {
                                 $.each(response, function (i, v) {
