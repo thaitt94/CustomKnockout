@@ -28,7 +28,7 @@ class Save extends \Magento\Framework\App\Action\Action
 
     public function execute()
     {
-        $data = $data = $this->helper->jsonDecode($this->getRequest()->getContent());
+        $data = $this->helper->jsonDecode($this->getRequest()->getContent());
         if(empty($data['entity_id'])){
             unset($data['entity_id']);
             $employee = $this->_employeeFactory->create();
